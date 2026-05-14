@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TechRenta - Dashboard de Sostenibilidad</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@latest/tabler-icons.min.css">
+</head>
+
+<body>
+
+  <h2 class="sr-only">Cuadro de mandos de sostenibilidad para TechRenta. Simula el impacto en beneficio, CO₂ y reputación.</h2>
+
+  <main class="dashboard-container">
+    <header class="dashboard-header">
+      <h1 class="dashboard-title">TechRenta Sostenible</h1>
+      <p style="color: var(--text-secondary); font-size: 15px;">Simulador de impacto ambiental y financiero para economía circular</p>
+    </header>
+
+    <section>
+      <p class="section-label"><i class="ti ti-chart-bar"></i> Indicadores Clave (KPIs)</p>
+      <div class="metrics-grid" id="metrics-grid">
+        <!-- Generado por JS -->
+      </div>
+    </section>
+
+    <section>
+      <p class="section-label"><i class="ti ti-adjustments-horizontal"></i> Simulador de Escenarios</p>
+      <div class="scenarios">
+        <button class="scenario-btn" onclick="applyScenario('base')" id="s-base">
+          <div class="scenario-name">📦 Situación Inicial</div>
+          <div class="scenario-desc">Venta tradicional de equipos nuevos sin retorno.</div>
+        </button>
+        <button class="scenario-btn" onclick="applyScenario('circular')" id="s-circular">
+          <div class="scenario-name">♻️ Modelo Circular</div>
+          <div class="scenario-desc">Alquiler, reacondicionamiento y modularidad.</div>
+        </button>
+        <button class="scenario-btn" onclick="applyScenario('crisis')" id="s-crisis">
+          <div class="scenario-name">⚡ Crisis Energética</div>
+          <div class="scenario-desc">Incremento severo en costes de energía y logística.</div>
+        </button>
+      </div>
+
+      <div class="sliders-grid">
+        <div class="slider-card">
+          <div class="slider-header">
+            <span class="slider-name"><i class="ti ti-device-laptop"></i> Vida útil</span>
+            <span class="slider-val" id="val-vida"></span>
+          </div>
+          <div class="slider-desc">Años de uso antes del reemplazo. Alarga el ciclo de vida.</div>
+          <input type="range" id="sl-vida" min="2" max="8" step="1" oninput="update()">
+        </div>
+        <div class="slider-card">
+          <div class="slider-header">
+            <span class="slider-name"><i class="ti ti-recycle"></i> Recuperación</span>
+            <span class="slider-val" id="val-recup"></span>
+          </div>
+          <div class="slider-desc">% de componentes recuperados y reinsertados.</div>
+          <input type="range" id="sl-recup" min="10" max="90" step="5" oninput="update()">
+        </div>
+        <div class="slider-card">
+          <div class="slider-header">
+            <span class="slider-name"><i class="ti ti-bolt"></i> Energía Renovables</span>
+            <span class="slider-val" id="val-ener"></span>
+          </div>
+          <div class="slider-desc">% de energía limpia en centros de datos.</div>
+          <input type="range" id="sl-ener" min="0" max="100" step="5" oninput="update()">
+        </div>
+        <div class="slider-card">
+          <div class="slider-header">
+            <span class="slider-name"><i class="ti ti-users"></i> Salario Relativo</span>
+            <span class="slider-val" id="val-sal"></span>
+          </div>
+          <div class="slider-desc">Nivel salarial respecto a la media del sector.</div>
+          <input type="range" id="sl-sal" min="80" max="140" step="5" oninput="update()">
+        </div>
+        <div class="slider-card">
+          <div class="slider-header">
+            <span class="slider-name"><i class="ti ti-map-pin"></i> Proveedores Locales</span>
+            <span class="slider-val" id="val-prov"></span>
+          </div>
+          <div class="slider-desc">% de suministro en un radio de 500km.</div>
+          <input type="range" id="sl-prov" min="0" max="80" step="10" oninput="update()">
+        </div>
+        <div class="slider-card">
+          <div class="slider-header">
+            <span class="slider-name"><i class="ti ti-tools"></i> Diseño Modular</span>
+            <span class="slider-val" id="val-mod"></span>
+          </div>
+          <div class="slider-desc">% de hardware con piezas intercambiables.</div>
+          <input type="range" id="sl-mod" min="0" max="100" step="10" oninput="update()">
+        </div>
+      </div>
+    </section>
+
+    <div id="alert-zone"></div>
+
+    <section class="chart-row">
+      <div class="chart-card">
+        <p class="section-label"><i class="ti ti-coin"></i> Estructura de Costes</p>
+        <div style="position:relative;height:250px;"><canvas id="chartCostes"></canvas></div>
+      </div>
+      <div class="chart-card">
+        <p class="section-label"><i class="ti ti-leaf"></i> Sostenibilidad vs Beneficio</p>
+        <div style="position:relative;height:250px;"><canvas id="chartScatter"></canvas></div>
+      </div>
+    </section>
+
+    <hr class="divider">
+
+    <section>
+      <p class="section-label"><i class="ti ti-world-heart"></i> Alineación con ODS</p>
+      <div class="ods-grid" id="ods-grid">
+        <!-- Generado por JS -->
+      </div>
+    </section>
+  </main>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+  <script src="script.js"></script>
+
+</body>
+
+</html>
