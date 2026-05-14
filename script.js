@@ -10,6 +10,7 @@ const BASE = { vida: 2, recup: 10, ener: 0, sal: 80, prov: 0, mod: 0 };
 const CIRC = { vida: 6, recup: 75, ener: 70, sal: 110, prov: 50, mod: 80 };
 const CRIS = { vida: 4, recup: 40, ener: 20, sal: 90, prov: 30, mod: 40 };
 
+
 // Chart.js Global Defaults
 if (typeof Chart !== 'undefined') {
   Chart.defaults.font.family = "'Outfit', sans-serif";
@@ -142,7 +143,7 @@ function update() {
     const sign = diff > 0 ? '+' : '';
     const cls = better ? 'delta-up' : (worse ? 'delta-down' : 'delta-neutral');
     const arrow = better ? 'ti-trending-up' : (worse ? 'ti-trending-down' : 'ti-minus');
-    
+
     return `<div class="metric">
       <div class="metric-label"><i class="ti ${m.icon}" style="margin-right:4px"></i> ${m.label}</div>
       <div class="metric-value">${(m.label.includes('Beneficio') && m.value >= 0 ? '+' : '') + m.value}</div>
